@@ -10,6 +10,7 @@ difficulty levels for the AI opponent in single-player mode.
 """
 
 import sys
+
 from src.game_functions import (
     create_board, print_board, get_player_move,
     check_winner, get_computer_move, ask_to_continue,
@@ -43,8 +44,6 @@ def singleplayer(size: int, depth: int) -> None:
     Args:
         size: The size of the game board (size x size)
         depth: The depth of the minimax search tree (difficulty)
-              0 = random moves
-              size*size = perfect play
     """
     board = create_board(size)
     human, computer = 'X', 'O'
@@ -134,7 +133,6 @@ def play_game() -> None:
                 print('Probably typo. Try again.')
             else:
                 break
-
         if mode == '1':
             print(
                 f'\n'
@@ -150,7 +148,6 @@ def play_game() -> None:
                     print('Probably typo. Try again.')
                 else:
                     break
-
         while True:
             size_input = input(
                 '\nSelect board size (min. 3, max. 9 for 9x9 board): '

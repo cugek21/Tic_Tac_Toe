@@ -13,6 +13,10 @@ from src.game_functions import check_winner
 
 
 class TicTacToeAdapter:
+    """
+    Provides all game-specific operations required by the generic
+    `minimax` function.
+    """
     def __init__(self, size: int, to_win: int, human='X', computer='O'):
         """
         Initialize the TicTacToeAdapter.
@@ -40,11 +44,8 @@ class TicTacToeAdapter:
             List of indices where a move can be made
         """
         return [
-            i for i, v in enumerate(
-                state
-            ) if v not in (
-                self.human, self.computer
-            )
+            i for i, v in enumerate(state)
+            if v not in (self.human, self.computer)
         ]
 
     def apply_move(
@@ -122,7 +123,7 @@ class TicTacToeAdapter:
             depth: How many moves ahead to look
             
         Returns:
-            The index of the best move, or None if no moves are available
+            Index of the best move, or None if no moves are available
         """
         _, move = minimax(
             state=board,
@@ -140,8 +141,8 @@ class TicTacToeAdapter:
         Generate all possible winning lines on the board.
         
         Returns:
-            List of lists, where each inner list contains indices that form
-            a potential winning line (horizontal, vertical, or diagonal)
+            List of lists, where each inner list contains indices
+            that form a potential winning line
         """
         lines = []
         N = self.size

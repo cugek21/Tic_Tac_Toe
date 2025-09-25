@@ -7,9 +7,6 @@ This module provides the basic game mechanics:
 - Win condition checking
 - Player input handling
 
-Supports customizable board sizes and win conditions, with colored
-output for better visual distinction between players.
-
 Constants:
     CENTER_WIDTH: Width for centering text output
     DIVIDER: Horizontal line for UI separation
@@ -63,11 +60,6 @@ def print_board(board: list[str], size: int) -> None:
     Args:
         board: List of strings representing the board state
         size: The width/height of the board (size x size)
-    
-    The function prints:
-    - A grid with '+' and '-' for borders
-    - Cell numbers or player marks ('X' in red, 'O' in green)
-    - Proper spacing and alignment for all board sizes
     
     Example output for 3x3:
         +----+----+----+
@@ -197,7 +189,7 @@ def ask_to_continue() -> bool:
     """
     while True:
         answer = input(
-            f'\n{'Play again? (y/n):'.center(CENTER_WIDTH)}\n{' ':>29}'
+            f'\n{'Play again? (y/n):'.center(CENTER_WIDTH)}'
         ).strip().lower()
         if answer in ('y', 'n'):
             return answer == 'y'
